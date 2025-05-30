@@ -18,3 +18,13 @@ func MessageContentToMessages(messageContent ...llms.MessageContent) []api.Messa
 
 	return messages
 }
+
+func MessagesToMessageContent(messages ...api.Message) []llms.MessageContent {
+	messageContents := []llms.MessageContent{}
+
+	for _, msgContent := range messages {
+		messageContents = append(messageContents, *msgContent.Message)
+	}
+
+	return messageContents
+}
